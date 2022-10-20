@@ -1,0 +1,18 @@
+{% extends 'testb_app/base.html' %}
+{% block body_block %}
+
+<div class="alert alert-danger">{{ delete_msg }}</div>
+
+{% endblock %}
+
+
+<!-- <p> Are you sure you want to Delete "{{item}}"? </p>
+
+<form action="{% url 'delete' item.id %}" method="POST">
+
+    {% csrf_token %}
+
+    <a href="{% url 'Index' %}">Cancel</a>
+
+    <input type="submit" name="Confirm">
+</form> -->

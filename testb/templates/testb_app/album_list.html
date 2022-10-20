@@ -1,0 +1,30 @@
+{% extends 'testb_app/base.html' %}
+{% block body_block %}
+
+
+<h4> Artist Name : {{artist.first_name}} {{artist.last_name}}</h4>
+<h4> Instrument Name : {{artist.instrument}}</h4>
+<h4> Average Raing: {{avg_star.num_stars__avg}}</h4>
+
+<a class="btn btn-success" href="{% url 'testb_app:edit_artist' artist_id=artist.id %}">Edit</a>
+&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+<a href="{% url 'testb_app:delete_musician' artist_id=artist.id %}" onclick="return confirm('Delete Musician?')"
+    class="btn btn-danger">Delete</a>
+
+<h3>::::: Album List :::::</h3>
+<table class="tabel table-success table-striped ">
+    <tr>
+        <th style="width:40%">Album Name</th>
+        <th style="width:50%">Release Date</th>
+        <th style="width:50%">Rating</th>
+    </tr>
+    {% for i in album %}
+    <tr>
+        <td> <a href="{% url 'testb_app:edit_album' album_id=i.id %}">{{ i.name }} </a></td>
+        <td>{{ i.release_date|date:"M d, Y" }}</td>
+        <td>{{ i.num_stars }}</td>
+    </tr>
+    {% endfor %}
+</table>
+
+{% endblock %}

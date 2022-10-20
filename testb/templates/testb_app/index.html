@@ -1,0 +1,23 @@
+{% extends 'testb_app/base.html' %}
+{% block body_block %}
+
+<h3>List of Musicians:</h3>
+
+<ul>
+    {% if musicians %}
+    {% for i in musicians %}
+
+
+    <li>
+        <a href="{% url 'testb_app:album_list' artist_id=i.id %}">{{ i.first_name|upper}} {{i.last_name|upper}}</a>
+    </li>
+
+    {% endfor %}
+
+    {% else %}
+    <h3>No Musician in the List</h3>
+    {% endif %}
+</ul>
+
+
+{% endblock %}
